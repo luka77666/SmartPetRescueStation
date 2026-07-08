@@ -1,0 +1,99 @@
+<mxfile host="app.diagrams.net" agent="CodeBuddy">
+  <diagram name="喂食称重控制流程图" id="feed-weight-flowchart">
+    <mxGraphModel dx="1228" dy="818" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;fontStyle=1;strokeWidth=3;" value="用户触发喂食" vertex="1">
+          <mxGeometry height="44" width="200" x="468" y="884" as="geometry" />
+        </mxCell>
+        <mxCell id="src1" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=15;" value="来源: APP MF0 / KEY_3 / 定时触发" vertex="1">
+          <mxGeometry height="26" width="260" x="360" y="4" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="n1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;fontColor=#000000;fontSize=15;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;fontStyle=1;strokeWidth=3;arcSize=40;" value="是否首次启动？" vertex="1">
+          <mxGeometry height="80" width="220" x="458" y="964" as="geometry" />
+        </mxCell>
+        <mxCell id="a2y" edge="1" parent="1" source="n2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;fontColor=#000000;fontSize=15;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n3" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2n" edge="1" parent="1" source="n2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;fontColor=#000000;fontSize=15;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n5" value="否">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="763" y="1004" />
+              <mxPoint x="763" y="1343" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lb1" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=0;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=15;" value="持续运行" vertex="1">
+          <mxGeometry height="24" width="60" x="769" y="1119" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;strokeWidth=3;align=left;spacingLeft=12;verticalAlign=top;spacingTop=6;" value="首次启动初始化&#xa;1. start_weight = 当前重量&#xa;2. 语音播报 喂食中&#xa;3. anti_jam_state = 0" vertex="1">
+          <mxGeometry height="90" width="240" x="448" y="1094" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" source="n3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;fontStyle=1;strokeWidth=3;" value="电机正转 5 圈启动" vertex="1">
+          <mxGeometry height="44" width="190" x="473" y="1224" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" source="n4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;strokeWidth=3;align=center;verticalAlign=middle;spacingTop=4;" value="防卡粮自动反转&#xa;正转5圈完成 → 反转1圈&#xa;反转1圈完成 → 正转5圈 (循环)" vertex="1">
+          <mxGeometry height="70" width="240" x="448" y="1308" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" source="n5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n6" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;fontStyle=1;strokeWidth=3;arcSize=40;" value="喂食量是否达标？" vertex="1">
+          <mxGeometry height="90" width="210" x="463" y="1424" as="geometry" />
+        </mxCell>
+        <mxCell id="a6y" edge="1" parent="1" source="n6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;fontColor=#000000;fontSize=15;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n7" value="是">
+          <mxGeometry relative="1" x="-0.1852" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a6n" edge="1" parent="1" source="n6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;fontColor=#000000;fontSize=15;fontStyle=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="n5" value="否">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="323" y="1469" />
+              <mxPoint x="323" y="1343" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lb2" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=0;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=15;" value="继续运行" vertex="1">
+          <mxGeometry height="24" width="60" x="338" y="1375" as="geometry" />
+        </mxCell>
+        <mxCell id="n7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;strokeWidth=3;align=center;verticalAlign=middle;spacingTop=4;" value="增量达标，自动停止&#xa;Food_Flag=0, Now_Food_Flag=0&#xa;MOTOR_ABORT()" vertex="1">
+          <mxGeometry height="60" width="230" x="453" y="1568" as="geometry" />
+        </mxCell>
+        <mxCell id="n8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;strokeWidth=3;fontStyle=1;align=center;verticalAlign=middle;" value="手动停止&#xa;APP MF1 / KEY_4" vertex="1">
+          <mxGeometry height="50" width="160" x="765" y="1568" as="geometry" />
+        </mxCell>
+        <mxCell id="a8" edge="1" parent="1" source="n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="n9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="723" y="1593" />
+              <mxPoint x="723" y="1684" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a7" edge="1" parent="1" source="n7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=3;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;fontStyle=1;strokeWidth=3;" value="待机" vertex="1">
+          <mxGeometry height="44" width="160" x="488" y="1662" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=15;align=left;spacingLeft=12;verticalAlign=top;spacingTop=6;strokeWidth=3;" value="target 取值规则:&#xa;  定时触发: target = schedule[n].feed_weight (对应定时的喂食量)&#xa;  手动触发: target = weight_Value (全局称重阈值)&#xa;  判定条件: 当前重量 - 启动时重量 &gt;= target → 自动停止" vertex="1">
+          <mxGeometry height="150" width="330" x="423" y="1744" as="geometry" />
+        </mxCell>
+        <mxCell id="ljKvIER7doyQ-8zXhQzw-1" edge="1" parent="1" source="note1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="note1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

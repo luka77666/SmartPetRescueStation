@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>毕业设计海报 - 智能宠物救助站系统</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 840mm;
+    height: 1188mm;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0f3460 100%);
+    font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  /* 背景装饰圆 */
+  body::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(67, 97, 238, 0.12);
+    top: -180px;
+    right: -120px;
+  }
+  body::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(76, 201, 240, 0.08);
+    bottom: -120px;
+    left: -100px;
+  }
+
+  .poster {
+    width: 840mm;
+    height: 1188mm;
+    padding: 50px 70px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 顶部 */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 3px solid rgba(67, 97, 238, 0.7);
+  }
+  .header .school {
+    font-size: 28px;
+    color: #7dd3fc;
+    letter-spacing: 8px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .header .title-cn {
+    font-size: 72px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #4cc9f0, #4361ee, #7209b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-shadow: none;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  .header .subtitle {
+    font-size: 30px;
+    color: #e2e8f0;
+    margin-top: 12px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .header .title-en {
+    font-size: 22px;
+    color: #94a3b8;
+    letter-spacing: 3px;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+  /* 主体 */
+  .main {
+    flex: 1;
+    display: flex;
+    gap: 50px;
+    margin-top: 15px;
+  }
+
+  /* 左侧：功能卡片 */
+  .left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .card {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+  }
+  .card:hover {
+    background: rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.8);
+  }
+  .card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    flex-shrink: 0;
+  }
+  .card-icon.blue   { background: rgba(67,97,238,0.3); }
+  .card-icon.green  { background: rgba(76,201,160,0.3); }
+  .card-icon.orange { background: rgba(245,166,35,0.3); }
+  .card-icon.purple { background: rgba(114,9,183,0.3); }
+  .card-body h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #f1f5f9;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .card-body p {
+    font-size: 18px;
+    color: #cbd5e1;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* 右侧：系统框图 + APP截图 */
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* 系统框图 */
+  .sys-diagram {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    border-radius: 20px;
+    padding: 28px;
+    flex: 1;
+  }
+  .sys-diagram h3 {
+    font-size: 22px;
+    color: #7dd3fc;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .diag-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .diag-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .diag-box {
+    background: rgba(67, 97, 238, 0.2);
+    border: 2px solid rgba(67, 97, 238, 0.5);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 16px;
+    color: #bfdbfe;
+    text-align: center;
+    min-width: 100px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .diag-box.highlight {
+    background: rgba(76, 201, 160, 0.2);
+    border-color: rgba(76, 201, 160, 0.6);
+    color: #6ee7b7;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .diag-arrow {
+    font-size: 22px;
+    color: #4361ee;
+    text-align: center;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  /* 技术参数表 */
+  .tech-spec {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    border-radius: 20px;
+    padding: 24px 28px;
+  }
+  .tech-spec h3 {
+    font-size: 22px;
+    color: #7dd3fc;
+    margin-bottom: 18px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    font-size: 17px;
+  }
+  .spec-item .label { color: #94a3b8; font-weight: 500; }
+  .spec-item .value { color: #f1f5f9; font-weight: 700; }
+
+  /* 使用说明 */
+  .usage-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    border-radius: 20px;
+    padding: 28px 36px;
+  }
+  .usage-section h3 {
+    font-size: 24px;
+    color: #7dd3fc;
+    margin-bottom: 18px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .usage-steps {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .usage-step {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+  .step-num {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 50%;
+    background: rgba(67, 97, 238, 0.6);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(67,97,238,0.4);
+  }
+  .step-title {
+    font-size: 18px;
+    color: #e2e8f0;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* 实物与APP页面展示 */
+  .showcase-section {
+    margin-top: 30px;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    border-radius: 20px;
+    padding: 28px 36px;
+  }
+  .showcase-section h3 {
+    font-size: 24px;
+    color: #7dd3fc;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .showcase-item {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid rgba(67, 97, 238, 0.4);
+    background: rgba(0,0,0,0.2);
+  }
+  .showcase-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .showcase-label {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    color: #cbd5e1;
+    font-weight: 600;
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* 底部 */
+  .footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(67, 97, 238, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left {
+    font-size: 17px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+  .footer-left .name { font-size: 24px; color: #e2e8f0; font-weight: 800; }
+  .footer-right {
+    text-align: right;
+    font-size: 17px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+  .footer-right .teacher { font-size: 24px; color: #e2e8f0; font-weight: 800; }
+  .tech-tags {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: rgba(67, 97, 238, 0.25);
+    border: 1px solid rgba(67, 97, 238, 0.5);
+    border-radius: 24px;
+    padding: 6px 18px;
+    font-size: 15px;
+    color: #bfdbfe;
+    font-weight: 600;
+  }
+
+  /* 打印适配 */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- 顶部标题 -->
+  <div class="header">
+    <div class="school">仲恺农业工程学院 · 电子信息工程</div>
+    <div class="title-cn">智能宠物救助站系统</div>
+    <div class="subtitle">基于 STM32 的自动化救助系统设计</div>
+    <div class="title-en">Intelligent Pet Rescue Station System Based on STM32</div>
+  </div>
+
+  <!-- 主体 -->
+  <div class="main">
+
+    <!-- 左侧功能卡片 -->
+    <div class="left">
+      <div class="card">
+        <div class="card-icon blue">🌡️</div>
+        <div class="card-body">
+          <h3>环境监测</h3>
+          <p>DHT11 温湿度实时采集 · HX711 高精度称重（±1g）<br>水位传感器 ADC 采集 · 数据异常自动报警</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon green">🍽️</div>
+        <div class="card-body">
+          <h3>智能喂食</h3>
+          <p>增量称重算法 · 防卡粮反转机制 · 定时定量投放<br>手动/自动双模式 · 超重自动停止（防止溢出）</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon orange">📶</div>
+        <div class="card-body">
+          <h3>远程通信</h3>
+          <p>ESP8266 WiFi 模块 · AP/STA 双模式<br>TCP Socket 实时通信 · Android App 远程监控</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon purple">📱</div>
+        <div class="card-body">
+          <h3>App 控制端</h3>
+          <p>Jetpack Compose 架构 · 实时数据仪表盘<br>定时任务管理 · 一键喂食/补水 · 运行日志</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧系统框图 + 参数 -->
+    <div class="right">
+      <div class="sys-diagram">
+        <h3>📐 系统架构</h3>
+        <div class="diag-flow">
+          <div class="diag-row">
+            <div class="diag-box">DHT11<br><small>温湿度</small></div>
+            <div class="diag-box">HX711<br><small>称重</small></div>
+            <div class="diag-box">水位<br><small>ADC</small></div>
+            <div class="diag-box">红外<br><small>人体</small></div>
+          </div>
+          <div class="diag-arrow">⬇</div>
+          <div class="diag-row">
+            <div class="diag-box highlight">STM32F103C8T6<br><small>主控芯片 72MHz</small></div>
+          </div>
+          <div class="diag-arrow">⬇</div>
+          <div class="diag-row">
+            <div class="diag-box">步进电机<br><small>喂食</small></div>
+            <div class="diag-box">继电器<br><small>水泵</small></div>
+            <div class="diag-box">TFT LCD<br><small>本地显示</small></div>
+            <div class="diag-box">蜂鸣器<br><small>报警</small></div>
+          </div>
+          <div class="diag-arrow">⬇</div>
+          <div class="diag-row">
+            <div class="diag-box">ESP8266<br><small>WiFi TCP</small></div>
+            <div class="diag-box">Android App<br><small>远程监控</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-spec">
+        <h3>🔧 核心技术参数</h3>
+        <div class="spec-grid">
+          <div class="spec-item"><span class="label">主控芯片</span><span class="value">STM32F103C8T6</span></div>
+          <div class="spec-item"><span class="label">CPU 频率</span><span class="value">72 MHz</span></div>
+          <div class="spec-item"><span class="label">称重精度</span><span class="value">±1 g</span></div>
+          <div class="spec-item"><span class="label">喂食量范围</span><span class="value">0~999 g</span></div>
+          <div class="spec-item"><span class="label">通信方式</span><span class="value">WiFi TCP</span></div>
+          <div class="spec-item"><span class="label">显示模块</span><span class="value">TFT LCD 1.8"</span></div>
+          <div class="spec-item"><span class="label">防水等级</span><span class="value">IPX4</span></div>
+          <div class="spec-item"><span class="label">待机功耗</span><span class="value"><0.5 W</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 使用说明 -->
+  <div class="usage-section">
+    <h3>📱 使用说明</h3>
+    <div class="usage-steps">
+      <div class="usage-step">
+        <div class="step-num">1</div>
+        <div class="step-title">连接设备</div>
+        <div class="step-desc">接通电源，设备自动启动<br>屏幕显示系统初始化信息</div>
+      </div>
+      <div class="usage-step">
+        <div class="step-num">2</div>
+        <div class="step-title">连接WiFi</div>
+        <div class="step-desc">手机连接设备热点<br>或配置家庭WiFi网络</div>
+      </div>
+      <div class="usage-step">
+        <div class="step-num">3</div>
+        <div class="step-title">打开App</div>
+        <div class="step-desc">启动智能宠物救助站App<br>实时查看宠物状态</div>
+      </div>
+      <div class="usage-step">
+        <div class="step-num">4</div>
+        <div class="step-title">开始使用</div>
+        <div class="step-desc">设置定时喂食计划<br>远程监控宠物健康状况</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 实物与APP页面展示 -->
+  <div class="showcase-section">
+    <h3>📷 实物与APP页面展示</h3>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <img src="device_photo.jpg" alt="实物照片">
+        <div class="showcase-label">实物装置</div>
+      </div>
+      <div class="showcase-item">
+        <img src="app_home.jpg" alt="APP首页">
+        <div class="showcase-label">APP 首页监测</div>
+      </div>
+      <div class="showcase-item">
+        <img src="app_feed.jpg" alt="APP喂食页">
+        <div class="showcase-label">APP 喂食控制</div>
+      </div>
+      <div class="showcase-item">
+        <img src="app_schedule.jpg" alt="APP定时页">
+        <div class="showcase-label">APP 定时计划</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部信息 -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="name">林湘龙</div>
+      <div>学号：202210214214　班级：电子信息工程222班</div>
+      <div class="tech-tags">
+        <span class="tag">C 语言</span>
+        <span class="tag">STM32</span>
+        <span class="tag">Keil5</span>
+        <span class="tag">Android Kotlin</span>
+        <span class="tag">Jetpack Compose</span>
+        <span class="tag">ESP8266</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="teacher">指导教师：罗志杰 副教授</div>
+      <div>校外导师：张冕 高工</div>
+      <div style="margin-top:8px; font-size:15px; color:#64748b;">仲恺农业工程学院 · 2026年5月</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

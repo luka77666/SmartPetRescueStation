@@ -1,0 +1,54 @@
+# ===== Keil/MDK编译中间文件 =====
+*.o
+*.d
+*.crf
+*.axf
+*.hex
+*.bin
+*.map
+*.lnp
+*.htm
+*.build_log.htm
+*.dep
+*.iex
+*.sct
+OBJ/
+Objects/
+Listings/
+
+# ===== Python缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# ===== Word临时/备份 =====
+~$*
+*.tmp
+
+# ===== 备份文件夹 =====
+_backup_*/
+
+# ===== 工作区 & IDE =====
+.workbuddy/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== 查重报告 =====
+批量下载查重检测报告/
+批量下载查重检测报告.zip
+
+# ===== 教学管理材料（非项目内容）=====
+教学管理材料-*.docx
+教学管理材料-*.pdf
+
+# ===== 日志 =====
+*.log
+
+# ===== Windows系统文件 =====
+Thumbs.db
+Desktop.ini

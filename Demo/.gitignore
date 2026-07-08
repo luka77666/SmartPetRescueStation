@@ -1,0 +1,13 @@
+/build
+/app/build
+/app-release
+/build
+/.gradle
+/.idea
+/gradle
+*.apk
+*.dex
+*.class
+local.properties
+*.iml
+.DS_Store
